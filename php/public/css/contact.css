@@ -1,0 +1,175 @@
+.form form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    flex-direction: column;
+    background-color: var(--LightBrown);
+    padding: 35px 50px;
+    border: 2px solid var(--Beige);
+    border-radius: 15px;
+}
+
+
+input {
+    color: var(--Black);
+    background-color: var(--LightBrown);
+    border-top: 2px solid var(--LightBrown);
+    border-right: 2px solid var(--LightBrown);
+    border-bottom: 2px solid var(--Beige);
+    border-left: 2px solid var(--Beige);
+    padding: 10px;
+    margin: 5px 0 5px 0;
+    outline: none;
+    padding: 10px;
+}
+
+input::placeholder {
+    color: var(--Black);
+}
+
+select {
+    background-color: var(--LightBrown);
+    border: none;
+    color: var(--Black);
+    outline: none;
+    padding: 10px;
+    margin: 5px 0 5px 0;
+    border-top: 2px solid var(--LightBrown);
+    border-right: 2px solid var(--LightBrown);
+    border-bottom: 2px solid var(--Beige);
+    border-left: 2px solid var(--Beige);
+}
+
+
+textarea {
+    background-color: var(--White);
+    border: none;
+    resize: none;
+    outline: none;
+    padding: 10px;
+    margin: 30px 0 15px 0;
+    height: 80px;
+    border-radius: 15px;
+}
+
+textarea::placeholder {
+    color: var(--Black);
+}
+
+label {
+    color: var(--White);
+    text-align: center;
+}
+
+.img-form {
+    max-width: 430px;
+    border-radius: 200px;
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 3rem;
+}
+
+label {
+    color: var(--Black);
+}
+
+button {
+    background-color: var(--Brown);
+    border: 2px solid var(--Black);
+    border-radius: 50px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: ease-in-out 0.5s;
+    color: var(--White);
+}
+
+button:hover {
+    background-color: var(--Beige);
+    color: var(--Black);
+}
+
+/* Formulaire de connexion page login */
+
+.connectForm {
+    margin: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    flex-direction: column;
+    background-color: var(--LightBrown);
+    padding: 35px 50px;
+    border: 2px solid var(--Beige);
+    border-radius: 15px;
+}
+
+.connect {
+    background-color: var(--Brown);
+    border: 2px solid var(--Black);
+    border-radius: 50px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: ease-in-out 0.5s;
+    color: var(--White);
+}
+.new-password { 
+    display: none; 
+}
+
+.connect:hover {
+    background-color: var(--Beige);
+    color: var(--Black);
+}
+
+/* Button se déconnecter page admin */
+
+.disconnect {
+    background-color: var(--Brown);
+    border: 2px solid var(--Black);
+    border-radius: 50px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: ease-in-out 0.5s;
+    color: var(--White);
+}
+
+.disconnect:hover {
+    background-color: var(--Beige);
+    color: var(--Black);
+}
+
+
+
+
+
+@media screen and (max-width:391px) {
+
+    form {
+        width: 70%;
+    }
+
+    select,textarea {
+        width: 100%;
+    }
+
+    .img-form {
+        width: 70%;
+    }
+
+    .form {
+        gap: 3rem;
+    }
+}
+
+@media only screen and (min-width: 392px) and (max-width: 1025px) {
+    .form {
+        gap : 2rem;
+    }
+
+    
+
+}
