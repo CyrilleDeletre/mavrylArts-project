@@ -3,9 +3,6 @@
 // Chemin absolu vers le répertoire parent du répertoire actuel pour accéder au controller
 require_once dirname(__DIR__) . "/controllers/Controller.php";
 
-// Créez une instance du contrôleur
-$controller = new Controller;
-
 // Tableau de mappage des catégories de message
 $messageCategories = [
     1 => "Commission personnalisée",
@@ -15,6 +12,7 @@ $messageCategories = [
 
 // Si on est pas connecté en tant qu'admin, on affiche l'html suivant
 if (!(isset($_SESSION['admin']) && $_SESSION['admin'] === true)) {
+
 ?>
 <article>
     <h2 class="pageBlank">Contactez-moi</h2>
@@ -69,11 +67,11 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
     $controller = new Controller;
     
     // Récupération des messages de la base de données
-    $messages = $bdd->getAllMessages();
+    $messages = $controller->getAllMessages();
 
     // On boucle pour afficher chaque message de la bdd en fonction de l'utilisateur qui a publié ce message
     foreach ($messages as $message) {
-        $user = $bdd->getUserById($message['user_id']);
+        $user = $controller->getUserById($message['user_id']);
         $categoryText = isset($messageCategories[$message['message_category']]) ? $messageCategories[$message['message_category']] : "Unknown category";
         echo "<article>";
         echo "<h2>" . htmlspecialchars($categoryText) . "</h2>";
