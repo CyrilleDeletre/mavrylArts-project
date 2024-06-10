@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="password" id="current_password" name="current_password" placeholder="Votre mot de passe actuel :" required><br>
             <input type="password" id="new_password" name="new_password" placeholder="Nouveau mot de passe :" required><br>
             <input type="password" id="confirm_new_password" name="confirm_new_password" placeholder="Répéter le nouveau mot de passe :" required><br>
-            <input type="submit" name="change_password" value="Modifier le mot de passe">
+            <input type="submit" name="change_password" value="Valider" class="connect">
         </form>
         <?php if ($error_message): ?>
             <p class="error-message"><?php echo $error_message; ?></p>
