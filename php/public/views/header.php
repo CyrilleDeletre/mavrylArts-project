@@ -1,10 +1,13 @@
 <!-- Composant header de chaque page -->
- 
 <header>
     <div id="btn-burger">☰</div>
     <nav class="main-nav-burger">
-        <ul>
-            <a href="../" alt="logo de Mavryl Arts"><img class="nav-logo" src="../img/logo-mavrylArts.png"></a>
+        <ul>            
+            <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] === true): ?>
+                <a href="?page=admin" alt="logo de Mavryl Arts"><img class="nav-logo" src="../img/logo-mavrylArts.png"></a>
+            <?php else: ?>
+                <a href="../" alt="logo de Mavryl Arts"><img class="nav-logo" src="../img/logo-mavrylArts.png"></a>
+            <?php endif; ?>
             
             <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] === true): ?>
                 <li><a href="../">Utilisateurs</a></li>
