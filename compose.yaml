@@ -25,8 +25,6 @@ services:
       - MARIADB_ROOT_PASSWORD=root
     ports:
       - "3851:3306"
-    # volumes:
-      # - ./ressources/database/bddtotal.sql:/docker-entrypoint-initdb.d/bddtotal.sql
   phpmyadmin:
     image: phpmyadmin
     container_name: serverPHPMyAdminMavrylArts
