@@ -1,3 +1,5 @@
+<!-- Page de politique de confidentialité -->
+
 <article>
     <h2 class="pageBlank">Politique de Confidentialité</h2>
     <p>

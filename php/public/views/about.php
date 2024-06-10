@@ -1,3 +1,5 @@
+<!-- Page A propos -->
+ 
 <article>
     <h2 class="pageBlank">A propos de moi ...</h2>
 </article>

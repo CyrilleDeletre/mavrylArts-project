@@ -1,5 +1,10 @@
 <?php
-require_once dirname(__DIR__) . '/models/BddConnect.php';
+
+// Chemin absolu vers le répertoire parent du répertoire actuel pour accéder au controller
+require_once dirname(__DIR__) . "/controllers/Controller.php";
+
+// Créez une instance du contrôleur
+$controller = new Controller;
 
 // Tableau de mappage des catégories de message
 $messageCategories = [
@@ -8,6 +13,7 @@ $messageCategories = [
     3 => "Achat d'une oeuvre"
 ];
 
+// Si on est pas connecté en tant qu'admin, on affiche l'html suivant
 if (!(isset($_SESSION['admin']) && $_SESSION['admin'] === true)) {
 ?>
 <article>
@@ -47,11 +53,8 @@ if (isset($_POST['submitForm'])) {
     $message_category = $_POST['message_category'];
     $message_content = $_POST['message_content'];
 
-    // Création de l'objet BddConnect
-    $bdd = new BddConnect();
-
-    // Insertion des données de contact dans la base de données
-    $inserted = $bdd->insertMessage($user_last_name, $user_first_name, $user_email, $message_category, $message_content);
+    // Insertion des données de contact dans la base de données en utilisant l'instance du contrôleur
+    $inserted = $controller->insertMessage($user_last_name, $user_first_name, $user_email, $message_category, $message_content);
 
     if ($inserted) {
         echo "Votre message a bien été envoyé";
@@ -60,10 +63,10 @@ if (isset($_POST['submitForm'])) {
     }
 }
 
-// Affichage des messages pour l'admin
+// Si on est connecté en tant qu'administrateur, on affiche à la place l'html suivant
 if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
-    // Création de l'objet BddConnect
-    $bdd = new BddConnect();
+    // Créez une instance du contrôleur
+    $controller = new Controller;
     
     // Récupération des messages de la base de données
     $messages = $bdd->getAllMessages();
