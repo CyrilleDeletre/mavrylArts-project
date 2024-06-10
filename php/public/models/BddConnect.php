@@ -173,7 +173,7 @@ class BddConnect
      * Méthode pour récupérer tous les utilisateurs de la base de données.
      */
     public function getAllUsers() {
-        $stmt = $this->connexion->prepare('SELECT user_id, user_first_name, user_last_name, user_email FROM users');
+        $stmt = $this->connexion->prepare('SELECT * FROM users WHERE id_admin IS NULL');
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

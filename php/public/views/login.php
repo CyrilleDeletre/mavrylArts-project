@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 ob_start();
-require_once dirname(__DIR__) . '/models/BddConnect.php';
+require_once dirname(__DIR__) . "/controllers/Controller.php";
 
 $error_message = "";
 
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="submit" name="login" value="Se connecter" class="connect">
         </form>
         <button onclick="showNewPassword()">Modifier le mot de passe</button>
-        <form action="login.php" method="post" class="new-password">
+        <form method="post" class="new-password">
             <input type="email" id="email" name="email" placeholder="Adresse e-mail :" required><br>
             <input type="password" id="current_password" name="current_password" placeholder="Votre mot de passe actuel :" required><br>
             <input type="password" id="new_password" name="new_password" placeholder="Nouveau mot de passe :" required><br>

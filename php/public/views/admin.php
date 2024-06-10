@@ -13,6 +13,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
     exit();
 }
 ?>
+<h1>Bienvenue dans l'espace d'administration du site Mavryl Arts</h1>
 <h2 class="pageBlank">Panneau d'administration</h2>
 
 <article>

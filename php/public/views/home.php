@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__DIR__) . '/models/BddConnect.php'; // Assurez-vous que le chemin est correct
+require_once dirname(__DIR__) . "/controllers/Controller.php";
 
 
 if (!(isset($_SESSION['admin']) && $_SESSION['admin'] === true)) {

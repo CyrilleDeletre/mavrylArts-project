@@ -44,7 +44,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
 
 // Traitement du formulaire d'ajout d'image
 if (isset($_POST['add_image'])) {
-    $targetDir = "../img/";
+    $targetDir = __DIR__ . "/../img/";
     $targetFile = $targetDir . basename($_FILES["image"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
