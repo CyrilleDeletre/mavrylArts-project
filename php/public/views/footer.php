@@ -1,3 +1,5 @@
+<!-- Composant footer de chaque page -->
+ 
 <footer>
     <div>
         <p>mavryl.arts@gmail.com</p>

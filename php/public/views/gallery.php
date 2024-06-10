@@ -1,4 +1,7 @@
 <?php
+// Page Gallerie
+
+// Chemin absolu vers le répertoire parent du répertoire actuel pour accéder au controller
 require_once dirname(__DIR__) . "/controllers/Controller.php";
 
 // Créez une instance du contrôleur
@@ -32,6 +35,7 @@ $images = $controller->getAllImages();
 </article>
 
 <?php
+// Si on est connecté en tant qu'administrateur, on accède a la possibilité d'ajouter ou de supprimer des images
 if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
 ?>
     <form method="POST" action="" enctype="multipart/form-data" class="form">
@@ -64,13 +68,13 @@ if (isset($_POST['add_image'])) {
         $uploadOk = 0;
     }
 
-    // Vérifiez la taille du fichier
+    // Vérifiez la taille du fichier pour qu'il ne soit pas trop lourd
     if ($_FILES["image"]["size"] > 500000) {
         echo "Désolé, votre fichier est trop volumineux.";
         $uploadOk = 0;
     }
 
-    // Autoriser certains formats de fichier
+    // Autoriser  les fichiers jpg, png, jpeg ou gif uniquement
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
         echo "Désolé, seuls les fichiers JPG, JPEG, PNG & GIF sont autorisés.";
         $uploadOk = 0;

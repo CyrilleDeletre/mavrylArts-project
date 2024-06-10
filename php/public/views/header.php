@@ -1,3 +1,5 @@
+<!-- Composant header de chaque page -->
+ 
 <header>
     <div id="btn-burger">☰</div>
     <nav class="main-nav-burger">

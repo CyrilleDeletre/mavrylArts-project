@@ -1,12 +1,19 @@
 <?php
+// Page de connexion
+
+// Verification qu'il y'a bien une session active, si non, on en crée une
 if (!isset($_SESSION)) {
     session_start();
 }
 ob_start();
+
+// Chemin absolu vers le répertoire parent du répertoire actuel pour accéder au controller
 require_once dirname(__DIR__) . "/controllers/Controller.php";
 
+// Nettoyage des message d'erreurs
 $error_message = "";
 
+// Si on poste une requête de connexion :
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['login'])) {
         // Connexion
@@ -18,10 +25,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([$email]);
         $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        // On vérifie si on est bien l'administrateur et que le mot de passe correspond bien
         if ($admin && password_verify($password, $admin['admin_password'])) {
-            // Mot de passe correct, connectez l'administrateur
+
+            // On connecte l'administrateur
             $_SESSION['admin'] = true;
             $_SESSION['admin_id'] = $admin['id_admin'];
+
+            // On redirige sur la page d'admin
             header("Location: ?page=admin");
             exit();
         } else {

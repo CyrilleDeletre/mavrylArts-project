@@ -71,6 +71,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
     // Récupération des messages de la base de données
     $messages = $bdd->getAllMessages();
 
+    // On boucle pour afficher chaque message de la bdd en fonction de l'utilisateur qui a publié ce message
     foreach ($messages as $message) {
         $user = $bdd->getUserById($message['user_id']);
         $categoryText = isset($messageCategories[$message['message_category']]) ? $messageCategories[$message['message_category']] : "Unknown category";

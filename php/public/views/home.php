@@ -1,7 +1,10 @@
 <?php
+// Page d'accueil
+
+// Chemin absolu vers le répertoire parent du répertoire actuel pour accéder au controller
 require_once dirname(__DIR__) . "/controllers/Controller.php";
 
-
+// Si on est pas connecté en tant qu'administrateur, on affiche ce contenu html
 if (!(isset($_SESSION['admin']) && $_SESSION['admin'] === true)) {
 ?>
 
@@ -46,7 +49,7 @@ if (!(isset($_SESSION['admin']) && $_SESSION['admin'] === true)) {
 <?php
 }
 
-// Vérifie si l'utilisateur est connecté en tant qu'administrateur
+// Si on est connecté en tant qu'administrateur, à la place, on affiche ce contenu html
 if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
     // Crée une instance de BddConnect
     $bdd = new BddConnect();    
