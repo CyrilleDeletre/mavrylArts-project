@@ -16,9 +16,6 @@
     text-align: center;
 }
 
-
-
-
 /* Styles des titres principaux */
 
 h1 {
@@ -238,11 +235,4 @@ article {
     .about {
         width: 70%;
     }
-
-    .gallery img {
-        
-    }
-
-    
-
 }

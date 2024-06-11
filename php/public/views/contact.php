@@ -2,6 +2,8 @@
 
 // Chemin absolu vers le répertoire parent du répertoire actuel pour accéder au controller
 require_once dirname(__DIR__) . "/controllers/Controller.php";
+// Créez une instance du contrôleur
+$controller = new Controller;
 
 // Tableau de mappage des catégories de message
 $messageCategories = [
@@ -14,31 +16,31 @@ $messageCategories = [
 if (!(isset($_SESSION['admin']) && $_SESSION['admin'] === true)) {
 
 ?>
-<article>
-    <h2 class="pageBlank">Contactez-moi</h2>
-</article>
+    <article>
+        <h2 class="pageBlank">Contactez-moi</h2>
+    </article>
 
-<article class="form">
-    <form method="post">
-        <!-- Formulaire de contact -->
-        <input type="text" name="user_last_name" placeholder="Nom" required>
-        <input type="text" name="user_first_name" placeholder="Prénom" required>
-        <input type="email" name="user_email" placeholder="Adresse mail" required>
-        <select name="message_category" required>
-            <option value="" disabled selected>Votre demande concerne ...</option>
-            <option value="1">Commission personnalisée</option>
-            <option value="2">Demande de devis</option>
-            <option value="3">Achat d'une oeuvre</option>
-        </select>
-        <textarea name="message_content" cols="30" rows="10" placeholder="Écrivez ici votre message ..." required></textarea>
-        <label>Je certifie que ces informations sont correctes</label>
-        <input type="checkbox" name="accept" required>
-        <button type="submit" name="submitForm">Envoyer</button>
-    </form>
+    <article class="form">
+        <form method="post">
+            <!-- Formulaire de contact -->
+            <input type="text" name="user_last_name" placeholder="Nom" required>
+            <input type="text" name="user_first_name" placeholder="Prénom" required>
+            <input type="email" name="user_email" placeholder="Adresse mail" required>
+            <select name="message_category" required>
+                <option value="" disabled selected>Votre demande concerne ...</option>
+                <option value="1">Commission personnalisée</option>
+                <option value="2">Demande de devis</option>
+                <option value="3">Achat d'une oeuvre</option>
+            </select>
+            <textarea name="message_content" cols="30" rows="10" placeholder="Écrivez ici votre message ..." required></textarea>
+            <label>Je certifie que ces informations sont correctes</label>
+            <input type="checkbox" name="accept" required>
+            <button type="submit" name="submitForm">Envoyer</button>
+        </form>
 
-    <!-- Image du formulaire -->
-    <img src="../img/contact.jpg" class="img-form">
-</article>
+        <!-- Image du formulaire -->
+        <img src="../img/contact.jpg" class="img-form">
+    </article>
 
 <?php
 }
@@ -63,9 +65,8 @@ if (isset($_POST['submitForm'])) {
 
 // Si on est connecté en tant qu'administrateur, on affiche à la place l'html suivant
 if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
-    // Créez une instance du contrôleur
-    $controller = new Controller;
-    
+
+
     // Récupération des messages de la base de données
     $messages = $controller->getAllMessages();
 
@@ -89,7 +90,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
 // Traitement de la suppression des messages
 if (isset($_POST['delete_message'])) {
     $id_message = $_POST['id_message'];
-    
+
     // Suppression du message de la base de données
     $bdd->deleteMessage($id_message);
 }
