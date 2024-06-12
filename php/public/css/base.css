@@ -1,3 +1,7 @@
+@font-face {
+    font-family: "MoonTime";
+    src: url(../../../FontsFree-Net-MoonTime-Regular-1.ttf);
+}
 :root {
     --White: #ffffff;
     --Beige: #EEDCCE;
