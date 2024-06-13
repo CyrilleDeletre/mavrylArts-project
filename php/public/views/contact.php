@@ -91,7 +91,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
 if (isset($_POST['delete_message'])) {
     $id_message = $_POST['id_message'];
 
-    // Suppression du message de la base de données
-    $bdd->deleteMessage($id_message);
+    // Suppression du message de la base de données en utilisant l'instance du contrôleur
+    $deleted = $controller->deleteMessage($id_message);
 }
 ?>
